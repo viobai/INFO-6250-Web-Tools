@@ -15,7 +15,9 @@ const messages = [
 ];
 
 function addMessage({ sender, text }) {
-  // Fill in!
+  const timestamp = new Date().toLocaleString();
+  const message = { sender, text, timestamp };
+  messages.push(message);
 }
 
 const chat = {
@@ -25,4 +27,3 @@ const chat = {
 };
 
 module.exports = chat;
-
