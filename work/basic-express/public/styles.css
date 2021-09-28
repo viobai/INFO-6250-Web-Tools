@@ -1,0 +1,22 @@
+.messages {
+    list-style-type: circle;
+}
+
+.messages > *, form > * {
+    margin: 6px 0;
+}
+
+.hidden-input-group {
+    display: none;
+}
+
+.sender {
+    font-weight: bold;
+}
+
+.display-panel > * {
+    margin: 5px auto;
+    padding: 0 15px;
+    width: 50%;
+    border: 1px solid;
+}
