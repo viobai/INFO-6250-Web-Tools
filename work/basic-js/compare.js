@@ -2,9 +2,21 @@
 /* DO NOT MODIFY EXCEPT WHERE ALLOWED */
 module.exports = compare; // DO NOT MODIFY - USED FOR TESTING
 
-function compare( word, guess ) {  // DO NOT MODIFY
+function compare( word, guess ) {  // DO NOT MODIFY 
+  const charFrequencyInWord = {};
+  const lowerCaseWord = word.toLowerCase();
+  for (let char of lowerCaseWord) {
+    charFrequencyInWord[char] = (charFrequencyInWord[char] + 1) || 1;
+  }
 
-/* YOU MAY MODIFY THE LINES BELOW */
+  let commonCharactersCount = 0;
+  const lowerCaseGuess = guess.toLowerCase();
+  for (let char of lowerCaseGuess) {
+    if (charFrequencyInWord[char] > 0) {
+      commonCharactersCount++;
+      charFrequencyInWord[char]--;
+    }
+  }
 
-  return 0; // this line is wrong
+  return commonCharactersCount;
 }
