@@ -1,0 +1,17 @@
+{
+  "name": "express-login",
+  "version": "0.1.0",
+  "description": "* Start from the up-to-date main branch (`git checkout main; git pull origin main`) * Create a feature branch named 'express-login' (`git checkout -b express-login`) * Create a package.json and necessary files to complete the work described below * Add, commit, and push the branch to github * Create a PR to merge to main * Be sure to include the reviewer(s).   * Due by 11:59pm (PT) Sun Oct 17",
+  "main": "chat-web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}
