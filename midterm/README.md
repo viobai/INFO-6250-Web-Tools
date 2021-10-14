@@ -155,3 +155,12 @@ Each of the following is worth an extra credit point.
 - Prevent the guess form from submitting and/or disable the button when the value in the guess field is not a acceptable guess
 - Inform the user when the value in the guess field is not an acceptable guess
   - Bonus point: Do this when they attempt to submit or when the field loses focus rather than doing it as they type
+
+## Submission Instructions
+
+- Start from the up-to-date main branch (git checkout main; git pull origin main)
+- Create a feature branch named 'midterm' (git checkout -b midterm)
+- Create a package.json and necessary files to complete the work described in this README
+- Add, commit, and push the branch to github
+- Create a PR to merge to main
+- Be sure to include the reviewer(s).
