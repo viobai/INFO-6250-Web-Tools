@@ -1,0 +1,124 @@
+/* ---------------------------- Shared --------------------------- */
+.largeText {
+    font-size: 20px;
+}
+
+.mediumText{
+    font-size: 16px;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+.right {
+    text-align: right;
+    margin-right: 2rem;
+}
+
+.center {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.colorText {
+    color:  orangered;
+}
+
+.border {
+    border: 3px solid;
+    width: 60%;
+}
+
+/* ---------------------------- Login Page --------------------------- */
+.loginPage {
+    padding: 0 15px;
+    position: absolute;
+    width: 22rem !important;
+    height: 22rem;
+}
+
+#invalidLoginMessage {
+    display: none;
+}
+
+#requireLoginMessage {
+    display: none;
+}
+
+.show {
+    display: block !important;
+}
+
+.loginPage > form, .loginPage > form > * {
+    margin: 1rem;
+}
+
+.loginPage > form > h2 {
+    margin: 10% 0;
+    font-size: 30px;
+}
+
+.loginPage > form > div > input {
+    height: 34px;
+    width: 97%;
+}
+
+.loginPage > form > input {
+    margin-left: 14rem;
+}
+
+/* ---------------------------- Game Page --------------------------- */
+.panel {
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    min-width: 450px;
+}
+
+.panel > * {
+    margin: 1.5rem 3rem;
+}
+
+#valid-words-subpanel > span {
+    margin: 0 10px;
+}
+
+.guessed {
+    text-decoration: line-through;
+    color: rgb(180, 179, 179);
+}
+
+ol {
+    padding: 0;
+}
+
+ol > div> div > li:nth-child(even) {
+    background-color: rgb(236, 235, 235);
+}
+
+ol > div, ol > div > div> li {
+    min-width: 400px;
+}
+
+ol > div > span, ol > div > div> li > span {
+    margin: 0 5px;
+    width: 47%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.button {
+    padding: 4px 10px;
+}
+
+#winning-subpanel > span {
+    font-size: 50px;
+}
