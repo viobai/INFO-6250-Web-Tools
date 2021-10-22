@@ -1,0 +1,60 @@
+.loginForm {
+    padding: 0 15px;
+    width: 30%;
+    height: 24%;
+    border: 3px solid;
+    position:absolute;
+    top: 38%;
+    left:35%;
+    display: flex;
+    justify-content: center;
+    min-width: fit-content;
+    min-height: 180px;
+}
+
+.loginForm > form > div {
+    padding: 12% 0;
+}
+
+.loginForm > form > div > input {
+    height: 30px;
+    font-size: 20px;
+}
+
+.loginForm > form > * {
+    font-size: 20px;
+}
+
+.loginForm > form > input {
+    border-radius: 4px;
+    position: absolute;
+    right: 10%;
+}
+
+.header-panel {
+    text-align: right;
+}
+
+.header-panel > p > #username {
+    font-weight: bold;
+}
+
+.wordDisplay {
+    margin: 10px auto;
+    border: 1px solid;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.input-panel > form > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.display-panel > * {
+    margin: 5px auto;
+    width: 50%;
+    padding: 5px 15px;
+}
