@@ -9,8 +9,7 @@
     function addAbilityToShowInvalidLoginMessage() {
         loginFormEl.addEventListener('submit', (e) => {
             const username = loginInputEl.value.trim();
-            console.log(username);
-            if (!/^[a-z0-9]+$/i.test(username) || username === 'dog' || !username) {
+            if (!username || !/^[a-z0-9]+$/i.test(username) || username === 'dog') {
                 e.preventDefault();
                 invalidLoginMessageEl.style.display = 'block';
             } else {

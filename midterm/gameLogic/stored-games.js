@@ -4,14 +4,15 @@ let games = {};
 
 function addNewGuessFromUser({ username, guess, secretWord }) {
     const guessMatch = game.getMatch(secretWord, guess);
+    const lowerCaseUsername = username.toLowerCase();
     if (/^\d+$/.test(guessMatch)) { // increment count only if guessMatch is a integer >= 0
-        games[username.toLowerCase()]['validGuessCount']++;
+        games[lowerCaseUsername]['validGuessCount']++;
     }
     if (guessMatch == 10) { // placeholder integer to indicate exact match (game winning)
-        games[username.toLowerCase()]['won'] = true;
-        games[username.toLowerCase()]['prevGuesses'].push({ guess, guessMatch: 'Correct!' });
+        games[lowerCaseUsername]['won'] = true;
+        games[lowerCaseUsername]['prevGuesses'].push({ guess, guessMatch: 'Correct!' });
     } else {
-        games[username.toLowerCase()]['prevGuesses'].push({ guess: guess, guessMatch });
+        games[lowerCaseUsername]['prevGuesses'].push({ guess: guess, guessMatch });
     }
 }
 
@@ -22,10 +23,11 @@ function startNewGameByUser({ username }) {
 }
 
 function getSavedGameByUser({ username }) {
-    if (!games[username.toLowerCase()]) {
+    const lowerCaseUsername = username.toLowerCase();
+    if (!games[lowerCaseUsername]) {
         startNewGameByUser({ username: username });
     }
-    return games[username.toLowerCase()];
+    return games[lowerCaseUsername];
 }
 
 const storedGames = {

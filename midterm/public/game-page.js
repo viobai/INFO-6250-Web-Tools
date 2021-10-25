@@ -30,7 +30,7 @@ const gamePage = {
                       <span class="colorText centerText">You have won!</span>
                     </div>
                     ` : 
-                    `<div>
+                    `<div id="guess-input-subpanel">
                       ${gamePage.getGuess()}
                     </div>
                   `}
