@@ -1,0 +1,31 @@
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    padding: 10px 2rem;
+    font-size: large;
+    word-wrap: break-all;
+}
+
+li:hover {
+    background-color: rgb(243, 242, 242);
+  }
+
+li > button:nth-child(1) {
+    padding: 0 5px;
+}
+
+li > button:nth-child(3) {
+    margin-right: 1rem;
+    padding: 0 3px;
+}
+
+li > span:nth-child(4) {
+    padding-right: 1rem;
+}
+
+li > span:nth-child(5) {
+    color: red;
+}
