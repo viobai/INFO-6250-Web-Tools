@@ -1,0 +1,27 @@
+.todo__text--complete { 
+  text-decoration: line-through;
+}
+
+
+.todo__delete { 
+  border: none;
+  background-color: transparent;
+  font-size: 0.4rem;
+  min-width: 54px;
+  min-height: 54px;
+  cursor: pointer;
+}
+
+
+.todo__text--added { 
+  animation: fadeIn 1s linear;
+}
+
+@keyframes fadeIn { 
+  from { 
+    opacity: 0;
+  }
+  to { 
+    opacity: 1;
+  }
+}
