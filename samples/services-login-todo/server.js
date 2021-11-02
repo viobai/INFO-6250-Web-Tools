@@ -35,7 +35,10 @@ app.post('/api/session', (req, res) => {
     return;
   }
   const sid = sessions.addSession(username);
-  users.addUserData(username, todos.makeTodoList());
+  const existingUserData = users.getUserData(username);
+  if(!existingUserData) {
+    users.addUserData(username, todos.makeTodoList());
+  }
   res.cookie('sid', sid);
   res.json(users.getUserData(username).getTodos());
 });
