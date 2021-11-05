@@ -1,0 +1,36 @@
+.hidden { 
+    display: none;
+}
+
+.largeText {
+    font-size: 20px;
+}
+
+.center {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.center > * {
+    margin: 2rem 0;
+}
+
+.colorText {
+    color:  orangered;
+}
+
+.border {
+    border: 3px solid;
+    width: 60%;
+}
+
+.panel {
+    padding: 0 10px;
+    position: absolute;
+    width: 18rem !important;
+    height: 18rem;
+}
