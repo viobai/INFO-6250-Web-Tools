@@ -11,17 +11,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  function onLogin({ username, todos }) {
+  function handleLogin({ username, todos }) {
     setUsername(username);
     setTodos(todos);
   }
 
-  function onLogout() {
+  function handleLogout() {
     setUsername('');
     setTodos([]);
   }
 
-  function handleDone(id, doneStatus) {
+  function handleDone(id, task, doneStatus) {
     const todoForUpdate = todos[id];
     todoForUpdate.done = doneStatus;
     fetchUpdateTodo(id, todoForUpdate)
@@ -30,7 +30,7 @@ function App() {
       setError('');
     })
     .catch((err) => {
-      setError('Unexpected error while checking the task as done. Please try again.');
+      setError(`Unexpected error while checking the task '${task}' as done. Please try again.`);
     });    
   };
 
@@ -45,7 +45,7 @@ function App() {
     setIsLoading(true);
   }
 
-  function removeTask(id, task) {
+  function handleRemoveTask(id, task) {
       fetchDeleteTodo(id)
       .then(() => {
         setIsLoading(true);
@@ -65,7 +65,7 @@ function App() {
         setTodos(results);
       })
       .catch( () => {
-        setError(`Unexpected error while retrieving your to do list. Please try again.`);
+        setError(`Unexpected error while retrieving your to do list. Please try login again.`);
       });
     })
     .catch( e => {
@@ -81,9 +81,9 @@ function App() {
     <div className="App">
       {isLoading && !username && <span>Retrieving...</span>}
       {!isLoading && username && 
-        <Content username={username} todos={todos} onLogout={onLogout} error={error}
-        removeTask={removeTask} handleDone={handleDone} handleNewTask={handleNewTask}/>}
-      {!isLoading && !username && <Login onLogin={onLogin}/>}
+        <Content username={username} todos={todos} handleLogout={handleLogout} error={error}
+        handleRemoveTask={handleRemoveTask} handleDone={handleDone} handleNewTask={handleNewTask}/>}
+      {!isLoading && !username && <Login handleLogin={handleLogin}/>}
     </div>
   );
 }

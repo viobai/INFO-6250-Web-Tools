@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { fetchLogin } from './services';
 
-function Login({ onLogin }) {
+function Login({ handleLogin }) {
     const [username, setUsername] = useState('');
     const [error, setError] = useState('');
 
@@ -13,7 +13,7 @@ function Login({ onLogin }) {
         fetchLogin(username)
         .then( todos => {
             setError('');
-            onLogin({ username, todos });
+            handleLogin({ username, todos });
         })
         .catch( e => {
             if (e.error === "auth-insufficient") {

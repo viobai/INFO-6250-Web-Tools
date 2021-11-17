@@ -2,7 +2,7 @@ import { useState } from 'react';
 import TodoList from './TodoList';
 import { fetchLogout } from './services';
 
-function Content({ username, todos, onLogout, removeTask, handleDone, handleNewTask, error }) {
+function Content({ username, todos, handleLogout, handleRemoveTask, handleDone, handleNewTask, error }) {
     const [newTask, setNewTask] = useState('');
     const [currError, setCurrError] = useState(error);
 
@@ -13,10 +13,9 @@ function Content({ username, todos, onLogout, removeTask, handleDone, handleNewT
         }
         fetchLogout()
         .then( () => {
-            onLogout();
+            handleLogout();
         })
         .catch( err => {
-            console.log(err);
             setCurrError("Unexpected error while logging out. Please try again.");
         });
     }
@@ -47,7 +46,7 @@ function Content({ username, todos, onLogout, removeTask, handleDone, handleNewT
                 <input type="submit" id="submitBtn" value="Add"/>
             </form>
 
-            <TodoList todos={todos} handleDone={handleDone} removeTask={removeTask}/>
+            <TodoList todos={todos} handleDone={handleDone} handleRemoveTask={handleRemoveTask}/>
         </div>
     );
 }

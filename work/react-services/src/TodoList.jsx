@@ -1,22 +1,20 @@
 
 import Task from './Task';
 
-function TodoList({ todos, removeTask, handleDone }) {
-
+function TodoList({ todos, handleRemoveTask, handleDone }) {
     const tasks = [];
-    
     for (let currTaskKey in todos) {
         const currTask = todos[currTaskKey];
-
         tasks.push(<Task
-        key={currTask.id}
-        id={currTask.id}
-        task={currTask.task}
-        done={currTask.done}
-        handleDone = {handleDone}
-        removeTask = {removeTask}/>
+            key={currTask.id}
+            id={currTask.id}
+            task={currTask.task}
+            done={currTask.done}
+            handleDone = {handleDone}
+            handleRemoveTask = {handleRemoveTask}/>
         );
     }
+
     return (
         <div className="todoList">
             <h2>To Do List</h2>
