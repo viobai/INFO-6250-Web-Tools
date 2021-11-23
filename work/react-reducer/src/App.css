@@ -1,0 +1,137 @@
+/* Shared */
+
+.errorMsg {
+  color: orangered;
+  text-align: center;
+}
+
+/* Login Page */
+
+.login {
+  width: 16rem;
+  height: 16rem;
+  border: 3px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.login > * {
+  margin: 1.4rem 2rem;
+  display: block;
+}
+
+#loginBtn {
+  margin-left: 10rem;
+}
+
+/* Main Content */
+
+.content {
+  position: absolute;
+  margin: auto;
+  display: block;
+  width: 80%;
+  min-width: 400px;
+  bottom: 0px;
+  top: 0px;
+  left: 20%;
+  transform: translate(-15%, 0);
+}
+
+.centerText {
+  text-align: center;
+}
+
+/* Header Panel */
+
+.headerPanel {
+  text-align: right;
+}
+
+.headerPanel > * {
+  margin: 2rem .5rem 0 0;
+}
+
+/* New Task Panel */
+
+.newTaskPanel {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.newTaskPanel > * {
+  margin: 0 1rem;  
+}
+
+#submitBtn, #logoutBtn, #loginBtn {
+  padding: 2px 8px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+#submitBtn {
+  font-weight: bold;
+}
+
+#submitBtn:hover, #logoutBtn:hover, #loginBtn:hover {
+  background-color: rgb(28, 95, 241);
+  color: white;
+}
+
+/* To Do List */
+
+.todoList {
+  margin: 1rem;
+}
+
+.todoList > span {
+  font-weight: bold;
+}
+
+.todoList > span:nth-child(2), .todoList > h2 {
+  padding-left: 2.5rem;
+}
+
+.todoList > span:nth-child(3) {
+  padding-left: 3.5rem;
+}
+
+li > label {
+  padding: 0 4.5rem 0 0 ;
+}
+
+li > span {
+  width: 80%;
+  padding: 0 40px 0 0;
+  word-break: break-all;
+}
+
+li:hover {
+  background-color: rgba(240, 239, 239, 0.788);
+}
+
+.done {
+  text-decoration: line-through;
+  color: rgb(156, 156, 156);
+}
+
+.removeBtn {
+  margin: 0;
+  padding: 0 2.5px;
+  background-color: white;
+  color: orangered;
+  border-color: orangered;
+}
+
+.removeBtn:hover {
+  background-color: orangered;
+  color: white;
+}
+
+li {
+  display: flex;
+  padding: 10px 10px;
+} 
