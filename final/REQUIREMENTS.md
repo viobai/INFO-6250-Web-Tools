@@ -4,12 +4,18 @@
 * Be sure to include the reviewer(s) on your PR
 * Project is due 11:59pm (PT) on Mon Dec 13
 
+## Goals
+- Your project demonstrates your understanding of skills from class 
+  - This means code that only cut-and-pastes from samples or that use code from outside of class doesn't help
+- Your project is a React-based SPA about a topic of your choice
+  - note the requirements for specific functionality below
+
 ## Structural
 * Projects are individual (no groups)
 * Project must be based in this directory
     * This directory must be able to run the startup commands
-* The project must run with `npm install`, `npm start`
-    * You may define additional commands as options, but running the above two only must work
+* The project must run with `npm install`, `npm run build`, `npm start`
+    * You may define additional commands as options, but running the above only must work
 * Any `package.json` files you write should be well organized and complete
     * Fill in fields accurately
     * Use `dependencies` and `devDependencies` appropriately
