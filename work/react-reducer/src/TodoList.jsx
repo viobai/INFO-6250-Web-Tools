@@ -1,8 +1,9 @@
 import Task from './Task';
 
-function TodoList({ todos, handleRemoveTask, handleDone }) {
+function TodoList({ todos }) {
     
     const tasks = [];
+    // console.log(todos);
     for (let currTaskKey in todos) {
         const currTask = todos[currTaskKey];
         tasks.push(<Task

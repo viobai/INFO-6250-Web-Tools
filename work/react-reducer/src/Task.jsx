@@ -5,7 +5,7 @@ function Task({ id, task, done }) {
     const { handleRemoveTask, handleDone } = useContext(TodoContext);
 
     return (
-        <li>
+        <li key={id}>
             <label>
                 <input type="checkbox" onChange={() => handleDone(id, task, !done)} checked={done} />
             </label>

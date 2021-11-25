@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { fetchSession, fetchLogin, fetchLogout, fetchTodos, fetchDeleteTodo, fetchAddTodo, fetchUpdateTodo } from './services';
 import { reducer, initialState } from './reducer';
 import TodoContext from './TodoContext';
@@ -7,7 +7,6 @@ import Content from './Content';
 import './App.css';
 
 function App() {
-  const [ render, setRender ] = useState(false);
   const [ state, dispatch ] = useReducer(reducer, initialState);
 
   function handleLogin(username) {
@@ -26,7 +25,6 @@ function App() {
     fetchLogout()
     .then( () => {
       dispatch({ type: 'logout'});
-      setRender(true);
     })
     .catch( err => {
       dispatch({ type: 'showError', error: "Unexpected error while logging out. Please try again."});
@@ -39,7 +37,6 @@ function App() {
     fetchUpdateTodo(id, todoForUpdate)
     .then(() => {
       dispatch({ type: 'toggleTaskDone', id, doneStatus });
-      setRender(true);
     })
     .catch((err) => {
       dispatch({ type: 'showError', error: `Unexpected error while checking the task '${task}' as done. Please try again.`});
@@ -48,8 +45,8 @@ function App() {
 
   function handleNewTask(newTask) {
     fetchAddTodo(newTask)
-    .then(() => {
-      setRender(true);
+    .then( response => {
+      dispatch({ type: 'addTask', newTask: response});
     })
     .catch( err => {
       dispatch({ type: 'showError', error: `Unexpected error while adding the new task '${newTask}'. Please try again.`});
@@ -59,7 +56,7 @@ function App() {
   function handleRemoveTask(id, task) {
       fetchDeleteTodo(id)
       .then(() => {
-        setRender(true);
+        dispatch({ type: 'removeTask', id});
       })
       .catch((err) => {
         dispatch({ type: 'showError', error: `Unexpected error while removing the task '${task}'. Please try again.`});
@@ -79,12 +76,8 @@ function App() {
     })
     .catch( e => {
       console.log(e.error);
-    })
-    .finally( () => {
-      setRender(false);
     });
-  }, [render]
-  );
+  }, []);
 
   return (
     <div className="App">

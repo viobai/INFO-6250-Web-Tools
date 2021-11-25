@@ -29,10 +29,12 @@ export function reducer( state, action ) {
                 error: '',
                 todos: {
                     ...state.todos,
-                    ...action.newTask,
+                    [action.newTask.id]: {
+                        ...action.newTask,
+                    }
                 }
             };
-        case 'deleteTask':
+        case 'removeTask':
             const newTodos = { ...state.todos };
             delete newTodos[action.id];
             return {
