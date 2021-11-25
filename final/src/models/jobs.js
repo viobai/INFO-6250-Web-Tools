@@ -2,15 +2,16 @@ const uuid = require('uuid').v4;
 
 function makeJobList() {
   const jobList = {};
+  // status options: Applied, In-Interview, Declined, Offer
   const jobs = {
-    ["testId"]: {
-      id: "testId",
-      company: "Amazon",
-      date: "09/01/2021",
-      title: "Software Engineer I",
-      status: 'Applied',
-      link: "https://www.amazon.jobs/en/job_categories/software-development",
-      note: "Referred by alumni.",
+    ['sampleId']: {
+      id: 'sampleId',
+      company: 'Amazon',
+      date: '09/01/2021',
+      title: 'Software Engineer I',
+      status: 'Applied', 
+      link: 'https://www.amazon.jobs/en/job_categories/software-development',
+      note: 'Referred by alumni.',
     }
   };
 
@@ -29,7 +30,7 @@ function makeJobList() {
       company: newJob.company,
       date: newJob.date,
       title: newJob.title,
-      status: 'Applied', // applied, in interview, declined, offer
+      status: 'Applied',
       link: newJob.link,
       note: newJob.note
     };
@@ -48,7 +49,6 @@ function makeJobList() {
     jobs[id].link = job.link || jobs[id].link;
     jobs[id].note = job.note || jobs[id].note;
   };
-
 
   jobList.deleteJob = function deleteJob(id) {
     delete jobs[id];

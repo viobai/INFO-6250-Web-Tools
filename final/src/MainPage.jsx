@@ -1,54 +1,33 @@
-import { useState, useContext } from 'react';
+import { useReducer, useContext } from 'react';
+import { reducer, initialState } from './reducers/input-reducer';
+import { getInputError } from './utils/errors';
 import JobList from './JobList';
-import JobListContext from './JobListContext';
+import JobListContext from './contexts/JobListContext';
 
 function MainPage({ username, jobs, error }) {
     const { handleLogout, handleNewJob } = useContext(JobListContext);
-    const [newCompany, setNewCompany] = useState('');
-    const [newTitle, setNewTitle] = useState('');
-    const [newDate, setNewDate] = useState('');
-    const [newLink, setNewLink] = useState('');
-    const [newNote, setNewNote] = useState('');
-    const [inputError, setInputError] = useState('');
+    const [ state, dispatch ] = useReducer(reducer, initialState);
 
     function onSubmitLogout(e) {
         e.preventDefault();
         handleLogout();
     }
 
-    function validateInputLink(link) {
-        const urlRegEx = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)/;
-        return urlRegEx.test(link.toLowerCase());
-    }
-
     function onSubmitJob(e) {
         e.preventDefault();
-        const trimmedNewCompany = newCompany.trim();
-        const trimmedNewTitle = newTitle.trim();
-        const trimmedNewDate = newDate.trim();
-        const trimmedNewLink = newLink.trim();
-        const trimmedNewNote = newNote.trim();
-        if (!trimmedNewCompany || !trimmedNewDate || !trimmedNewTitle) {
-            setInputError('Required fields cannot be empty.');
-            return;
+        const trimmedNewCompany = state.newCompany.trim();
+        const trimmedNewTitle = state.newTitle.trim();
+        const trimmedNewDate = state.newDate.trim();
+        const trimmedNewLink = state.newLink.trim();
+        const trimmedNewNote = state.newNote.trim();
+
+        const inputError = getInputError(trimmedNewCompany, trimmedNewTitle, trimmedNewDate, trimmedNewLink);
+        if (inputError) {
+            dispatch({ type: 'setInputError', inputError});
+        } else {
+            handleNewJob(trimmedNewCompany, trimmedNewTitle, trimmedNewDate, trimmedNewLink, trimmedNewNote);
+            dispatch({ type: 'clearInputFields' });
         }
-        if (!/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/2\d{3}$/.test(trimmedNewDate)) {
-            setInputError('Please verify the "Date Applied" input to be valid and in the mm/dd/yyyy format.');
-            return;
-        }
-        if (trimmedNewLink && !validateInputLink(trimmedNewLink)) {
-            setInputError('Please enter a valid URL including http/https.');
-            return;
-        }
-        
-        handleNewJob(trimmedNewCompany, trimmedNewTitle, trimmedNewDate, trimmedNewLink, trimmedNewNote);
-        setNewCompany('');
-        setNewTitle('');
-        setNewDate('');
-        setNewLink('');
-        setNewNote('');
-        setInputError('');
-        console.log(jobs);
     }
 
     return (
@@ -63,22 +42,22 @@ function MainPage({ username, jobs, error }) {
             <div className="mainPanel">
                 <form className="newJobPanel verticalLineRight" onSubmit={onSubmitJob}>
                     <label>Company <span className="red">*</span><br/>
-                        <input value={newCompany} onChange={(e) => setNewCompany(e.target.value)}/>
+                        <input value={state.newCompany} onChange={(e) => dispatch({ type: 'setNewCompany', input: e.target.value})}/>
                     </label><br/>
                     <label>Job Title <span className="red">*</span><br/>
-                        <input value={newTitle} onChange={(e) => setNewTitle(e.target.value)}/>
+                        <input value={state.newTitle} onChange={(e) => dispatch({ type: 'setNewTitle', input: e.target.value})}/>
                     </label><br/>
                     <label>Date Applied <span className="red">*</span><br/>
-                        <input value={newDate} onChange={(e) => setNewDate(e.target.value)} placeholder="mm/dd/yyyy"/>
+                        <input value={state.newDate} onChange={(e) => dispatch({ type: 'setNewDate', input: e.target.value})} placeholder="mm/dd/yyyy"/>
                     </label><br/>
                     <label>Link<br/>
-                        <input value={newLink} onChange={(e) => setNewLink(e.target.value)}/>
+                        <input value={state.newLink} onChange={(e) => dispatch({ type: 'setNewLink', input: e.target.value})}/>
                     </label><br/>
                     <label>Notes To Self<br/>
-                        <textarea rows = "5" cols="23" value={newNote} onChange={(e) => setNewNote(e.target.value)} />
+                        <textarea rows = "5" cols="23" value={state.newNote} onChange={(e) => dispatch({ type: 'setNewNote', input: e.target.value})} />
                     </label><br/>
                     <input type="submit" id="submitBtn" value="Add"/>
-                    {inputError && <p className="errorMsg">{inputError}</p>}
+                    {state.inputError && <p className="errorMsg">{state.inputError}</p>}
                 </form>
                 
                 <JobList jobs={jobs} />

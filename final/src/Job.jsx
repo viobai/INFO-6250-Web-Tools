@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import JobListContext from './JobListContext';
+import JobListContext from './contexts/JobListContext';
 
 function Job({ job }) {
     const { handleRemoveJob, handleUpdateJobStatus } = useContext(JobListContext);

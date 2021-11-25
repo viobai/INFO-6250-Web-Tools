@@ -1,7 +1,8 @@
 import { useEffect, useReducer } from 'react';
-import { fetchSession, fetchLogin, fetchLogout, fetchJobs, fetchDeleteJob, fetchAddJob, fetchUpdateJob } from './services';
-import { reducer, initialState } from './reducer';
-import JobListContext from './JobListContext';
+import { fetchSession, fetchLogin, fetchLogout, fetchJobs, fetchDeleteJob, fetchAddJob, fetchUpdateJob } from './utils/services';
+import { reducer, initialState } from './reducers/app-reducer';
+import { getErrorMessage } from './utils/errors';
+import JobListContext from './contexts/JobListContext';
 import Login from './Login';
 import MainPage from './MainPage';
 import './App.css';
@@ -17,7 +18,9 @@ function App() {
     .catch( err => {
       console.log(err.error);
       if (err.error === 'auth-insufficient') {
-        dispatch({ type: 'showError', error: `Username cannot be 'null'.`});
+        dispatch({ type: 'showError', error: `Username cannot be 'null'.` });
+      } else {
+        dispatch({ type: 'showError', error: getErrorMessage({type: 'login'})});
       }
     });
   }
@@ -29,7 +32,7 @@ function App() {
     })
     .catch( err => {
       console.log(err.error);
-      dispatch({ type: 'showError', error: `Unexpected error while logging out. Please try again.`});
+      dispatch({ type: 'showError', error: getErrorMessage({type: 'logout'})});
     });
   }
 
@@ -40,8 +43,7 @@ function App() {
     })
     .catch( err => {
       console.log(err.error);
-      dispatch({ type: 'showError', error: `Unexpected error while adding the new job '${title}' 
-                 at '${company}'. Please try again.`});
+      dispatch({ type: 'showError', error: getErrorMessage({ type: 'addJob', title, company })});
     });
   }
 
@@ -52,8 +54,7 @@ function App() {
       })
       .catch(err => {
         console.log(err.error);
-        dispatch({ type: 'showError', error: `Unexpected error while removing the job '${title}' 
-                   at '${company}'. Please try again.`});
+        dispatch({ type: 'showError', error: getErrorMessage({ type: 'removeJob', title, company })});
       });
   };
 
@@ -66,8 +67,7 @@ function App() {
     })
     .catch( err => {
       console.log(err.error);
-      dispatch({ type: 'showError', error: `Unexpected error while updating the job '${title}' 
-                 at '${company}' as done. Please try again.`});
+      dispatch({ type: 'showError', error:  getErrorMessage({ type: 'updateJob', title, company })});
     });    
   };
 
@@ -80,15 +80,13 @@ function App() {
       })
       .catch( err => {
         console.log(err.error);
-        dispatch({ type: 'showError', error:`Unexpected error while retrieving user's saved jobs. 
-                   Please try login again.`});
+        dispatch({ type: 'showError', error: getErrorMessage({ type: 'retrieveJobs'})});
       });
     })
     .catch( err => {
       console.log(err.error);
       if (err.error !== 'auth-missing') {
-        dispatch({ type: 'showError', error:`Unexpected error while retrieving your login status. 
-                   Please refresh the page.`});
+        dispatch({ type: 'showError', error: getErrorMessage({ type: 'retrieveSession'})});
       }
     });
   }, []);

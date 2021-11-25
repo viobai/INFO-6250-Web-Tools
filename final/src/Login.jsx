@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
-import JobListContext from './JobListContext';
-import loginImg from './images/loginImage.png';
+import JobListContext from './contexts/JobListContext';
+import loginImg from './assets/loginImage.png';
 
 function Login({ error }) {
     const [usernameInput, setUsernameInput] = useState('');
