@@ -1,42 +1,45 @@
-# Salad App
+# Job Application Tracker
 
-Salad app is a simple application created with Node.js and React.
-To run the application, go in the `salad` directory and use these commands : `npm install` and then  `npm start`.
+Job Application Tracker is a SPA web application created with Node.js and React.
+
+To run the application: 
+> 1. clone this repo
+> 2. `npm install`
+> 
+> to run in dev:
+>> 3. `npm start`
+>> 4. `npm run dev` (in a second console)
+>> 5. go to `http://localhost:3000/`
+> 
+> to run in prod:
+>> 3. `npm start`
+>> 4. go to `http://localhost:4000/`
 
 ## About
 
-Login : To be able to buy a salad, you should log-in to the app.
-A valid username is required for you to login. The app does not accept blank usernames, special characters in the username.
-The user `dog` is banned from using the application.
-You can see who you are logged in as, on every page of the application.
-After logging in, you can either buy from the salads you have already created or you can customize a new salad.
+### Login
+* To view the job applications, user must first log into the app.
+* A valid username can be consisted of any alphanumerics and special characters. 
+* A username cannot be blank or equal to the word `null` (case matters).
 
-Customizing a salad : When you want to customize a new salad, a list of menu items will be displayed and you can add any number of items from the menu.
-You should select at-least one item to proceed. Each item is $1.25 .
-After you save the salad, total price of the salad will be displayed in the home page.
+### Job Application List
+> After logging in, the page will display a list of the job applications saved under the current username.
+* Each job application has the following fields
+  * Company: name of the company
+  * Date Applied: date when the job was applied
+  * Job Title: name of the job position, it may or may not include a link depending on the user input
+  * Status: status of the job application (applied, in interview, offer, decline)
+* User can view job applications under a specific **Status** by using the tabs above the list.
 
-You can navigate to the previous page from every page.
+### To Add a Job Application
+> User can add a new job application by filling the form on the left of the list. All fields with a red asterisk are required inputs.
+* **Company**: cannot be empty
+* **Job Title**: cannot be empty
+* **Date Applied**: cannot be empty, the format must be in mm/dd/yyyy, the year must be equal or greater than 2000
+* **Link**: can be empty, the format must be a valid full url (including http or https)
+* **Notes** To Self: can be empty
 
-## Components
-
-* Login Page : Will ask you to enter your username. Displays an error if the username is not valid.
-
-* Home Page :
-    * If you have any saved salads :
-      * It will display the `saved salads`
-      * You can `remove` salads from this list, if you don't need it anymore.
-      * Price of each salad will be displayed.
-      * You have an option to `buy` the salad.
-    * If you do not have any saved salads, an appropriate message will be displayed.
-    * If you do not want to buy from the `saved salads`, you have an option to `make a new salad`.
-    * There is an option to `log-out` from this page.
-
-* Customize Page : You will see a list of items, that you can add to your salad. Select what you want and hit the `save` button.
-If you press the save button without selecting anything, you will get an error message.
-You can go back to the previous page from this page.
-
-* Buy Page : Displays the order total & you can go back to the home page from this page.
 ## Image Credit
 
-https://www.canva.com/media/MAD3uhqkUEI Guy with Paper on Computer
-https://www.canva.com/media/MAD3ujn-lz0 Woman on Computer
+> https://www.canva.com/media/MAD3uhqkUEI Guy with Paper on Computer
+> https://www.canva.com/media/MAD3ujn-lz0 Woman on Computer
