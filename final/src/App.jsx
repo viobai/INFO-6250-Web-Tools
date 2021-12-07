@@ -3,8 +3,8 @@ import { fetchSession, fetchLogin, fetchLogout, fetchJobs, fetchDeleteJob, fetch
 import { reducer, initialState } from './reducers/app-reducer';
 import { getErrorMessage } from './utils/errors';
 import JobListContext from './contexts/JobListContext';
-import Login from './Login';
-import MainPage from './MainPage';
+import Login from './components/Login';
+import MainContent from './components/MainContent';
 import './App.css';
 
 function App() {
@@ -102,7 +102,7 @@ function App() {
         handleUpdateJobStatus
       }}>
         {state.username && state.isLoaded && 
-          <MainPage username={state.username} jobs={state.jobs} error={state.error} />
+          <MainContent username={state.username} jobs={state.jobs} error={state.error} />
         }
         {!state.username && <Login error={state.error}/>} 
       </JobListContext.Provider>

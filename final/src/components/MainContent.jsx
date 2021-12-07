@@ -1,10 +1,10 @@
 import { useReducer, useContext } from 'react';
-import { reducer, initialState } from './reducers/input-reducer';
-import { getInputError } from './utils/errors';
+import { reducer, initialState } from '../reducers/input-reducer';
+import { getInputError } from '../utils/errors';
 import JobList from './JobList';
-import JobListContext from './contexts/JobListContext';
+import JobListContext from '../contexts/JobListContext';
 
-function MainPage({ username, jobs, error }) {
+function MainContent({ username, jobs, error }) {
     const { handleLogout, handleNewJob } = useContext(JobListContext);
     const [ state, dispatch ] = useReducer(reducer, initialState);
 
@@ -67,4 +67,4 @@ function MainPage({ username, jobs, error }) {
     );
 }
 
-export default MainPage;
+export default MainContent;

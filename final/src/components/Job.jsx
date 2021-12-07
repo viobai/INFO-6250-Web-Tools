@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import JobListContext from './contexts/JobListContext';
+import JobListContext from '../contexts/JobListContext';
 
 function Job({ job }) {
     const { handleRemoveJob, handleUpdateJobStatus } = useContext(JobListContext);
@@ -22,7 +22,7 @@ function Job({ job }) {
             <div>
                 <button id="removeBtn" onClick={() => handleRemoveJob(job.id, job.title, job.company)}>X</button>
             </div>
-            <p className="notes">{job.note}</p>
+            {job.note && <p className="notes">{job.note}</p>}
         </li>
     );
 }

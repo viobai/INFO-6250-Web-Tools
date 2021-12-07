@@ -212,13 +212,18 @@ li > span {
   width: 22%;
 }
 
+li > :nth-child(6) {
+  width: 90%;
+  padding-bottom: 0;
+}
+
 li:hover {
   background-color: rgb(243, 243, 243);
 }
 
 li > .notes {
   padding-top: 0;
-  color: rgb(99, 99, 99);
+  color: rgb(120, 120, 120);
   white-space: pre-wrap;
 }
 
