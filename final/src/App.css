@@ -97,9 +97,8 @@
 
 .headerPanel {
   width: 100%;
-  min-width: 770px;
+  min-width: 950px;
   text-align: right;
-  position: fixed;
 }
 
 .headerPanel > * {

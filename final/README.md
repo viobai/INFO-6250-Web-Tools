@@ -5,13 +5,15 @@ Job Application Tracker is a simple SPA web application created with Node.js and
 To run the application: 
 ```
 git clone git@github.com:seainfo6250/student--viobai.git
+git fetch -a
+git checkout final-project
+cd student--viobai/final
 npm install
-npm start
 ```
- 
-To run in dev, ```npm run dev``` (in a second console) then go to http://localhost:3000/.
 
-To run in prod, go to http://localhost:4000/.
+To run in prod, ```npm run build``` and ```npm start``` then go to http://localhost:4000/.
+ 
+To run in dev, ```npm start``` and ```npm run dev``` (in a second console) then go to http://localhost:3000/.
 
 ## About
 
