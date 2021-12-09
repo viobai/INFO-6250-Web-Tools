@@ -5,8 +5,6 @@ Job Application Tracker is a simple SPA web application created with Node.js and
 To run the application: 
 ```
 git clone git@github.com:seainfo6250/student--viobai.git
-git fetch -a
-git checkout final-project
 cd student--viobai/final
 npm install
 ```
