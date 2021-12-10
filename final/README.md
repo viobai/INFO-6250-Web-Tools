@@ -50,6 +50,6 @@ To run in dev, ```npm start``` and ```npm run dev``` (in a second console) then 
 > A job application can be deleted by clicking the red arrow button on the right.
 
 ## Image Credit
-Both images below are used on the login page.
-* https://www.canva.com/media/MAD3uhqkUEI Guy with Paper on Computer
-* https://www.canva.com/media/MAD3ujn-lz0 Woman on Computer
+Both images below are under the [Free Media License Agreement](https://www.canva.com/policies/free-media/) from Canvas.
+* [Guy with Paper on Computer](https://www.canva.com/media/MAD3uhqkUEI)
+* [Woman on Computer](https://www.canva.com/media/MAD3ujn-lz0)
